@@ -17,6 +17,7 @@ import tkinter.messagebox as mbox
 master = tk.Tk()
 E1 = None
 E2 = None
+E3 = None
 ######################################
 
 FILEOPENOPTIONS = dict(defaultextension='.mod',
@@ -31,6 +32,7 @@ file_path = None
 file_name = None
 prefix = ''
 suffix = ''
+excludedInstructions = []
 
 #===============================================================================
 
@@ -64,11 +66,14 @@ def checkLines():
     global fileArray
     global prefix
     global suffix
+    global excludedInstructions
+
 
     pointNum = 1
     s = ''
     for line in range(len(fileArray)):
-        if (any(x in fileArray[line] for x in keyWordsFile)) and ('!' not in fileArray[line]) and ('[[' in fileArray[line]):
+        if (any(x in fileArray[line] for x in keyWordsFile)) and (not(any(q in fileArray[line] for q in excludedInstructions)))\
+                and ('!' not in fileArray[line]) and ('[[' in fileArray[line]):
             s1 = fileArray[line]
             s2 = fileArray[line]
             start = s2.find('[[')
@@ -112,18 +117,22 @@ def Mbox(title, text):
 def makeEntry():
     global E1
     global E2
+    global E3
 
     tk.Label ( master, text="Prefix" ).grid ( row=0 )
     tk.Label ( master, text="Suffix" ).grid ( row=1 )
+    tk.Label ( master, text="Excluded Instructions" ).grid ( row=2 )
 
     E1 = tk.Entry ( master )
     E2 = tk.Entry ( master )
+    E3 = tk.Entry ( master )
 
     E1.grid ( row=0, column=1 )
     E2.grid ( row=1, column=1 )
+    E3.grid ( row=2, column=1 )
 
-    tk.Button ( master, text='Quit', command=quitEntry ).grid ( row=3, column=0, sticky=tk.W, pady=4 )
-    tk.Button ( master, text='Continue', command=getEntryFields ).grid ( row=3, column=1, sticky=tk.W, pady=4 )
+    tk.Button ( master, text='Quit', command=quitEntry ).grid ( row=4, column=0, sticky=tk.W, pady=4 )
+    tk.Button ( master, text='Continue', command=getEntryFields ).grid ( row=4, column=1, sticky=tk.W, pady=4 )
 
     tk.mainloop ()
 
@@ -131,11 +140,18 @@ def getEntryFields():
     global master
     global E1
     global E2
+    global E3
     global prefix
     global suffix
+    global excludedInstructions
 
     prefix = E1.get ()
     suffix = E2.get ()
+    if not E3.get():
+        excludedInstructions = '#,#'.split ( ',' )
+    else:
+        excludedInstructions = E3.get().split(',')
+
     master.quit ()
 
 def quitEntry():

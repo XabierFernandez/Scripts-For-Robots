@@ -67,13 +67,14 @@ def checkLines():
     global prefix
     global suffix
     global excludedInstructions
+    global keyWordsFile
 
 
     pointNum = 1
     s = ''
     for line in range(len(fileArray)):
-        if (any(x in fileArray[line] for x in keyWordsFile)) and (not(any(q in fileArray[line] for q in excludedInstructions)))\
-                and ('!' not in fileArray[line]) and ('[[' in fileArray[line]):
+        if checkStrInLists(fileArray[line], keyWordsFile) and not checkStrInLists(fileArray[line], excludedInstructions)\
+                and not checkCharInStr('!', fileArray[line]) and checkCharInStr('[[', fileArray[line]):
             s1 = fileArray[line]
             s2 = fileArray[line]
             start = s2.find('[[')
@@ -82,6 +83,14 @@ def checkLines():
             subFileArray.append(s2)
             fileArray[line] = s1.replace ( s2, prefix + str(pointNum) + suffix)
             pointNum = pointNum + 1
+            
+def checkStrInLists(aStr, aList):
+    return (any(x in aStr for x in aList))
+     
+
+def checkCharInStr(aChar, aStr):
+    return (aChar in aStr)
+    
 
 ########## Modified File ##########
 

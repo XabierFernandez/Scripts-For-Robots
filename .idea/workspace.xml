@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4fbae844-bb23-4a8d-bc1d-a86b6c8407dd" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ABB/ModFile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ABB/TargetFile.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/ABB/Converter.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4fbae844-bb23-4a8d-bc1d-a86b6c8407dd" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,32 +11,38 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file leaf-file-name="Asterisk2Robtarget.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ABB/Asterisk2Robtarget.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1088">
-              <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-              <folding />
+            <state relative-caret-position="242">
+              <caret line="44" column="19" lean-forward="false" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+              <folding>
+                <element signature="e#3541#3613#0" expanded="false" />
+                <element signature="e#3636#4272#0" expanded="false" />
+                <element signature="e#4300#4623#0" expanded="false" />
+                <element signature="e#4646#4698#0" expanded="false" />
+                <element signature="e#4763#4881#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TargetFile.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TargetFile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ABB/TargetFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="323">
+              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ModFile.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ModFile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ABB/ModFile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -63,6 +64,8 @@
       <list>
         <option value="$PROJECT_DIR$/ABB/Asterisk2Robtarget.py" />
         <option value="$PROJECT_DIR$/ABB/Converter.py" />
+        <option value="$PROJECT_DIR$/ABB/ModFile.py" />
+        <option value="$PROJECT_DIR$/ABB/TargetFile.py" />
       </list>
     </option>
   </component>
@@ -237,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1497972332756</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="MOD20170620_C">
+      <created>1497980033091</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1497980033091</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -246,7 +256,7 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32894737" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -271,10 +281,13 @@
     <MESSAGE value="MOD20170619_A" />
     <MESSAGE value="MOD20170620" />
     <MESSAGE value="MOD20170620_A" />
-    <option name="LAST_COMMIT_MESSAGE" value="MOD20170620_A" />
+    <MESSAGE value="MOD20170620_C" />
+    <option name="LAST_COMMIT_MESSAGE" value="MOD20170620_C" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
@@ -282,7 +295,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1139">
           <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#3541#3613#0" expanded="false" />
+            <element signature="e#3636#4272#0" expanded="false" />
+            <element signature="e#4300#4623#0" expanded="false" />
+            <element signature="e#4646#4698#0" expanded="false" />
+            <element signature="e#4763#4881#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -298,15 +317,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ABB/Asterisk2Robtarget.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1088">
-          <caret line="67" column="17" lean-forward="false" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#3541#3613#0" expanded="false" />
+            <element signature="e#3636#4272#0" expanded="false" />
+            <element signature="e#4300#4623#0" expanded="false" />
+            <element signature="e#4646#4698#0" expanded="false" />
+            <element signature="e#4763#4881#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -318,18 +335,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ABB/TargetFile.py">
+    <entry file="file://$PROJECT_DIR$/ABB/Asterisk2Robtarget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="242">
+          <caret line="44" column="19" lean-forward="false" selection-start-line="44" selection-start-column="19" selection-end-line="44" selection-end-column="19" />
+          <folding>
+            <element signature="e#3541#3613#0" expanded="false" />
+            <element signature="e#3636#4272#0" expanded="false" />
+            <element signature="e#4300#4623#0" expanded="false" />
+            <element signature="e#4646#4698#0" expanded="false" />
+            <element signature="e#4763#4881#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ABB/ModFile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="1" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ABB/TargetFile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
           <folding />
         </state>
       </provider>

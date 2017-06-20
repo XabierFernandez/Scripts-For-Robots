@@ -5,19 +5,19 @@ Docstring
 
 #===============================================================================
 class TargetFile(object):
-    def __init__(self, file_object):
-        self.file_object = file_object
+    def __init__(self):
+        self.file_object = None
         self.fileArray = list()
-        self.subFileArray = list ()
+        self.subFileArray = list()
         self.keyWordsFile = list()
-        self.excludedInstructions = list ()
+        self.excludedInstructions = list()
         self.prefix = ''
         self.suffix = ''
 
-    def open_TargetFile(self, file_path):
+    def openTargetFile(self, file_path):
         self.file_object = open(file_path, 'r')
 
-    def close_TargetFile(self):
+    def closeTargetFile(self):
         self.file_object.close()
 
     def checkLines(self):
@@ -55,3 +55,15 @@ class TargetFile(object):
 
     def setSuffix(self, aStr):
         self.suffix = aStr
+
+    def getFileArray(self):
+        return self.fileArray
+
+    def getSubFileArray(self):
+        return self.subFileArray
+
+    def getPrefix(self):
+        return self.prefix
+
+    def getSuffix(self):
+        return self.suffix

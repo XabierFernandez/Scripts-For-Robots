@@ -1,4 +1,12 @@
 # -*- coding: utf-8 -*-
+__author__ = 'Xabier Fernandez Gutierrez'
+__copyright__ = 'Copyright (C) 2017,Xabier Fernandez Gutierrez'
+__credits__ = 'Xabier Fernandez Gutierrez'
+__license__ = 'GNU GPL v3.0 '
+__version__ = '2017.01'
+__maintainer__ = 'Xabier Fernandez Gutierrez'
+__email__ = 'xabier.fernandez@outlook.com'
+
 
 # Form implementation generated from reading ui file 'C:\Users\xabie\OneDrive\Apps_Xabi\Scripts\Converter\GUI\Mainwindow.ui'
 #

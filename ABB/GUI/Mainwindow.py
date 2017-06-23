@@ -21,7 +21,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(730, 467)
-        MainWindow.setMaximumSize(QtCore.QSize(730, 467))
+        MainWindow.setMaximumSize(MainWindow.size())
         MainWindow.setStyleSheet("background-color: rgb(129, 124, 129);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")

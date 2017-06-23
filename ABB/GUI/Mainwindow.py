@@ -20,8 +20,8 @@ from modules import xml_file, ModFile, TargetFile
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(730, 467)
-        MainWindow.setMaximumSize(QtCore.QSize(800, 800))
+        MainWindow.setFixedSize(730, 467)
+        MainWindow.setMaximumSize(QtCore.QSize(730, 467))
         MainWindow.setStyleSheet("background-color: rgb(129, 124, 129);")
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")

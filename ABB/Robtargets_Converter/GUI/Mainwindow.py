@@ -17,6 +17,13 @@ __email__ = 'xabier.fernandez@outlook.com'
 from PyQt5 import QtCore, QtGui, QtWidgets
 from modules import xml_file, ModFile, TargetFile
 
+class MyError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
@@ -440,52 +447,72 @@ class Ui_MainWindow(object):
         return listItems
 
     def runConvertAst2Robt(self):
-        msgBox = QtWidgets.QMessageBox()
-        msgBox.setText("Asterisk to robtarget converted")
-        msgBox.setInformativeText("Process finish")
-        msgBox.setWindowTitle("Convert asterisk2robtarget")
-        msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        # ====================================================================================================
-        keywordList = self.getKeywordList()
-        excludedList = self.getCheckedItems()
-        strTarget = self.lineTarget.text()
-        strMod = self.lineMod.text()
-        strPrefix = self.textPrefix.text()
-        strSuffix = self.textSuffix.text()
-        #====================================================================================================
-        targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
-        targetFileObject.processAst2RobtTargetFile()
-        # ====================================================================================================
-        modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
-                                          targetFileObject.getSubFileArray(), strPrefix, strSuffix )
-        modFileObject.processAst2RobtModFile ()
-        # ====================================================================================================
-        msgBox.exec()
-        # ====================================================================================================
+        try:
+            keywordList = self.getKeywordList()
+            excludedList = self.getCheckedItems()
+            strTarget = self.lineTarget.text()
+            strMod = self.lineMod.text()
+            strPrefix = self.textPrefix.text()
+            if not strPrefix:
+                raise MyError(1)
+            strSuffix = self.textSuffix.text()
+            #====================================================================================================
+            targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
+            targetFileObject.processAst2RobtTargetFile()
+            # ====================================================================================================
+            modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
+                                              targetFileObject.getSubFileArray(), strPrefix, strSuffix )
+            modFileObject.processAst2RobtModFile ()
+            # ====================================================================================================
+            self.msgBoxInfo("Asterisk to robtarget converted", "Process finish", "Convert asterisk2robtarget")
+            # ====================================================================================================
+        except FileNotFoundError:
+            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
+        except MyError as e:
+            self.msgBoxInfo("WARNING!, Setting prefix required. ", "Error", "Convert asterisk2robtarget")
 
     def runConvertRobt2Ast(self):
+        try:
+            keywordList = self.getKeywordList()
+            excludedList = self.getCheckedItems()
+            strTarget = self.lineTarget.text()
+            strMod = self.lineMod.text()
+            strPrefix = self.textPrefix.text()
+            strSuffix = self.textSuffix.text()
+            #====================================================================================================
+            targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
+            targetFileObject.processRobt2AstTargetFile()
+            # ====================================================================================================
+            modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
+                                              targetFileObject.getSubFileArray(), strPrefix, strSuffix )
+            modFileObject.processRobt2AstModFile ()
+            # ====================================================================================================
+            self.msgBoxInfo("Robtarget to asterisk converted", "Process finish", "Convert robtarget2asterisk")
+            # ====================================================================================================
+        except FileNotFoundError:
+            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
+
+
+    def msgBoxInfo(self,aText,aInfoText, aTitle):
         msgBox = QtWidgets.QMessageBox()
-        msgBox.setText("Robtarget to asterisk converted")
-        msgBox.setInformativeText("Process finish")
-        msgBox.setWindowTitle("Convert robtarget2asterisk")
+        msgBox.setIcon(QtWidgets.QMessageBox.Warning)
+        msgBox.setText(aText)
+        msgBox.setInformativeText(aInfoText)
+        msgBox.setWindowTitle(aTitle)
         msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        # ====================================================================================================
-        keywordList = self.getKeywordList()
-        excludedList = self.getCheckedItems()
-        strTarget = self.lineTarget.text()
-        strMod = self.lineMod.text()
-        strPrefix = self.textPrefix.text()
-        strSuffix = self.textSuffix.text()
-        #====================================================================================================
-        targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
-        targetFileObject.processRobt2AstTargetFile()
-        # ====================================================================================================
-        modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
-                                          targetFileObject.getSubFileArray(), strPrefix, strSuffix )
-        modFileObject.processRobt2AstModFile ()
-        # ====================================================================================================
         msgBox.exec()
-        # ====================================================================================================
+
+    def msgBoxWarning(self,aText,aInfoText, aTitle):
+        msgBox = QtWidgets.QMessageBox()
+        msgBox.setIcon(QtWidgets.QMessageBox.Information)
+        msgBox.setText(aText)
+        msgBox.setInformativeText(aInfoText)
+        msgBox.setWindowTitle(aTitle)
+        msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        msgBox.exec()
+
+
+
 
 if __name__ == "__main__":
     import sys

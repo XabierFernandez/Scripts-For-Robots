@@ -469,7 +469,7 @@ class Ui_MainWindow(object):
         except FileNotFoundError:
             self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
         except MyError as e:
-            self.msgBoxInfo("WARNING!, Setting prefix required. ", "Error", "Convert asterisk2robtarget")
+            self.msgBoxInfo("WARNING!, Setting the prefix-field required. ", "Error", "Convert asterisk2robtarget")
 
     def runConvertRobt2Ast(self):
         try:

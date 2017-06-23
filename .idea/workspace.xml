@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4fbae844-bb23-4a8d-bc1d-a86b6c8407dd" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ABB/GUI/Mainwindow.py" afterPath="$PROJECT_DIR$/ABB/GUI/Mainwindow.py" />
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
-=======
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ABB/GUI/Mainwindow.py" afterPath="$PROJECT_DIR$/ABB/GUI/Mainwindow.py" />
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -21,27 +14,12 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Mainwindow.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ABB/GUI/Mainwindow.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-=======
-=======
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
     <leaf>
       <file leaf-file-name="Mainwindow.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ABB/GUI/Mainwindow.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="51">
               <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-<<<<<<< HEAD
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
-=======
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
               <folding />
             </state>
           </provider>
@@ -308,28 +286,7 @@
       <option name="project" value="LOCAL" />
       <updated>1497980033091</updated>
     </task>
-    <task id="LOCAL-00005" summary="MOD20170623_D&#10;Modified Mainwindow size, to fixed size">
-      <created>1498208007309</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1498208007309</updated>
-    </task>
-    <task id="LOCAL-00006" summary="MOD20170623_D&#10;Modified Mainwindow size, to fixed size&#10;&#10;Signed-off-by: Xabier Fernandez &lt;xabier.fernandez@outlook.com&gt;">
-      <created>1498208567405</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1498208567405</updated>
-    </task>
-    <task id="LOCAL-00007" summary="MOD20170623_E&#10;Modified Mainwindow size, to fixed size&#10;&#10;Signed-off-by: Xabier Fernandez &lt;xabier.fernandez@outlook.com&gt;">
-      <created>1498208627597</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1498208627597</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -364,10 +321,7 @@
     <MESSAGE value="MOD20170620" />
     <MESSAGE value="MOD20170620_A" />
     <MESSAGE value="MOD20170620_C" />
-    <MESSAGE value="MOD20170623_D&#10;Modified Mainwindow size, to fixed size" />
-    <MESSAGE value="MOD20170623_D&#10;Modified Mainwindow size, to fixed size&#10;&#10;Signed-off-by: Xabier Fernandez &lt;xabier.fernandez@outlook.com&gt;" />
-    <MESSAGE value="MOD20170623_E&#10;Modified Mainwindow size, to fixed size&#10;&#10;Signed-off-by: Xabier Fernandez &lt;xabier.fernandez@outlook.com&gt;" />
-    <option name="LAST_COMMIT_MESSAGE" value="MOD20170623_E&#10;Modified Mainwindow size, to fixed size&#10;&#10;Signed-off-by: Xabier Fernandez &lt;xabier.fernandez@outlook.com&gt;" />
+    <option name="LAST_COMMIT_MESSAGE" value="MOD20170620_C" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -376,20 +330,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/ABB/GUI/Mainwindow.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
-=======
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
     <entry file="file://$PROJECT_DIR$/ABB/Asterisk2Robtarget.py" />
     <entry file="file://$PROJECT_DIR$/ABB/ModFile.py" />
     <entry file="file://$PROJECT_DIR$/ABB/TargetFile.py" />
@@ -402,16 +342,8 @@
     <entry file="file://$PROJECT_DIR$/ABB/TargetFile.py" />
     <entry file="file://$PROJECT_DIR$/ABB/GUI/Mainwindow.py">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="119">
-          <caret line="23" column="50" lean-forward="false" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-=======
         <state relative-caret-position="51">
           <caret line="22" column="41" lean-forward="false" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
-<<<<<<< HEAD
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
-=======
->>>>>>> 2ad7757323731c9fe009fd6388ece4d445439402
           <folding />
         </state>
       </provider>

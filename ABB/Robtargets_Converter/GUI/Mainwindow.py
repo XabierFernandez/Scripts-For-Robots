@@ -453,9 +453,14 @@ class Ui_MainWindow(object):
             strTarget = self.lineTarget.text()
             strMod = self.lineMod.text()
             strPrefix = self.textPrefix.text()
-            if not strPrefix:
-                raise MyError(1)
             strSuffix = self.textSuffix.text()
+            # ===================================
+            if not strTarget:
+                raise MyError(1)
+            if not strMod:
+                raise MyError(2)
+            if not strPrefix:
+                raise MyError(3)
             #====================================================================================================
             targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
             targetFileObject.processAst2RobtTargetFile()
@@ -468,8 +473,19 @@ class Ui_MainWindow(object):
             # ====================================================================================================
         except FileNotFoundError:
             self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
+        except PermissionError:
+            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
         except MyError as e:
-            self.msgBoxInfo("WARNING!, Setting the prefix-field required. ", "Error", "Convert asterisk2robtarget")
+            exceptValue = e.value
+            if exceptValue == 1:
+                self.msgBoxInfo("WARNING!, Setting the target-file path required. ",
+                                "Error", "Convert asterisk2robtarget")
+            elif exceptValue == 2:
+                self.msgBoxInfo("WARNING!, Setting the modified-file dir path required. ",
+                                "Error", "Convert asterisk2robtarget")
+            elif exceptValue == 3:
+                self.msgBoxInfo("WARNING!, Setting the prefix-field required. ",
+                                "Error", "Convert asterisk2robtarget")
 
     def runConvertRobt2Ast(self):
         try:
@@ -478,7 +494,12 @@ class Ui_MainWindow(object):
             strTarget = self.lineTarget.text()
             strMod = self.lineMod.text()
             strPrefix = self.textPrefix.text()
-            strSuffix = self.textSuffix.text()
+            strSuffix = self.textPrefix.text()
+            # ===================================
+            if not strTarget:
+                raise MyError(1)
+            if not strMod:
+                raise MyError(2)
             #====================================================================================================
             targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
             targetFileObject.processRobt2AstTargetFile()
@@ -491,7 +512,16 @@ class Ui_MainWindow(object):
             # ====================================================================================================
         except FileNotFoundError:
             self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
-
+        except PermissionError:
+            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
+        except MyError as e:
+            exceptValue = e.value
+            if exceptValue == 1:
+                self.msgBoxInfo("WARNING!, Setting the target-file path required. ",
+                                "Error", "Convert robtarget2asterisk")
+            elif exceptValue == 2:
+                self.msgBoxInfo("WARNING!, Setting the modified-file dir path required. ",
+                                "Error", "Convert robtarget2asterisk")
 
     def msgBoxInfo(self,aText,aInfoText, aTitle):
         msgBox = QtWidgets.QMessageBox()

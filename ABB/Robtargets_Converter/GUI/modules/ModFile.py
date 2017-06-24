@@ -5,7 +5,7 @@ Docstring
 
 #===============================================================================
 class ModFile(object):
-    def __init__(self, file_path, aFileArray, aSubFileArray, aPrefix, aSuffix):
+    def __init__(self, file_path, aFileArray, aSubFileArray, aPrefix='', aSuffix=''):
         self.file_object = None
         self.file_path = file_path
         self.fileArrayList = list( aFileArray )

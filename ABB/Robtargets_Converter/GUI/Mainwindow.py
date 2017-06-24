@@ -16,13 +16,8 @@ __email__ = 'xabier.fernandez@outlook.com'
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from modules import xml_file, ModFile, TargetFile
+from modules import MyMessages
 
-class MyError(Exception):
-    def __init__(self, value):
-        self.value = value
-
-    def __str__(self):
-        return repr(self.value)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -378,8 +373,7 @@ class Ui_MainWindow(object):
         filename = QtWidgets.QFileDialog.getOpenFileName ( MainWindow, "Open file", "C://",
                                                        "ABB Files (*.mod)" )
         if filename:
-            self.lineTarget.setText ( filename[0] )
-
+            self.lineTarget.setText (filename[0])
 
     def handlePbMod(self):
         dir = QtWidgets.QFileDialog.getExistingDirectory(MainWindow, "Open a folder", "C:/",
@@ -443,10 +437,10 @@ class Ui_MainWindow(object):
         for index in range(self.listUserMove.count()):
             check_box = self.listUserMove.itemWidget(self.listUserMove.item(index))
             listItems.append (check_box.text())
-
         return listItems
 
     def runConvertAst2Robt(self):
+        msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()
             excludedList = self.getCheckedItems()
@@ -456,11 +450,11 @@ class Ui_MainWindow(object):
             strSuffix = self.textSuffix.text()
             # ===================================
             if not strTarget:
-                raise MyError(1)
+                raise MyMessages.MyError(1)
             if not strMod:
-                raise MyError(2)
+                raise MyMessages.MyError(2)
             if not strPrefix:
-                raise MyError(3)
+                raise MyMessages.MyError(3)
             #====================================================================================================
             targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
             targetFileObject.processAst2RobtTargetFile()
@@ -469,79 +463,58 @@ class Ui_MainWindow(object):
                                               targetFileObject.getSubFileArray(), strPrefix, strSuffix )
             modFileObject.processAst2RobtModFile ()
             # ====================================================================================================
-            self.msgBoxInfo("Asterisk to robtarget converted", "Process finish", "Convert asterisk2robtarget")
+            msgBox.msgBoxInfo("Asterisk to robtarget converted", "Process finish", "Convert asterisk2robtarget")
             # ====================================================================================================
         except FileNotFoundError:
-            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
+            msgBox.msgBoxWarning("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
         except PermissionError:
-            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
-        except MyError as e:
+            msgBox.msgBoxWarning("WARNING!, Target file or dir missing. ", "Error", "Convert asterisk2robtarget")
+        except MyMessages.MyError as e:
             exceptValue = e.value
             if exceptValue == 1:
-                self.msgBoxInfo("WARNING!, Setting the target-file path required. ",
+                msgBox.msgBoxWarning("WARNING!, Setting the target-file path required. ",
                                 "Error", "Convert asterisk2robtarget")
             elif exceptValue == 2:
-                self.msgBoxInfo("WARNING!, Setting the modified-file dir path required. ",
+                msgBox.msgBoxWarning("WARNING!, Setting the modified-file dir path required. ",
                                 "Error", "Convert asterisk2robtarget")
             elif exceptValue == 3:
-                self.msgBoxInfo("WARNING!, Setting the prefix-field required. ",
+                msgBox.msgBoxWarning("WARNING!, Setting the prefix-field required. ",
                                 "Error", "Convert asterisk2robtarget")
 
     def runConvertRobt2Ast(self):
+        msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()
             excludedList = self.getCheckedItems()
             strTarget = self.lineTarget.text()
             strMod = self.lineMod.text()
-            strPrefix = self.textPrefix.text()
-            strSuffix = self.textPrefix.text()
             # ===================================
             if not strTarget:
-                raise MyError(1)
+                raise MyMessages.MyError(1)
             if not strMod:
-                raise MyError(2)
+                raise MyMessages.MyError(2)
             #====================================================================================================
-            targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
+            targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList)
             targetFileObject.processRobt2AstTargetFile()
             # ====================================================================================================
             modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
-                                              targetFileObject.getSubFileArray(), strPrefix, strSuffix )
+                                              targetFileObject.getSubFileArray())
             modFileObject.processRobt2AstModFile ()
             # ====================================================================================================
-            self.msgBoxInfo("Robtarget to asterisk converted", "Process finish", "Convert robtarget2asterisk")
+            msgBox.msgBoxInfo("Robtarget to asterisk converted", "Process finish", "Convert robtarget2asterisk")
             # ====================================================================================================
         except FileNotFoundError:
-            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
+            msgBox.msgBoxWarning("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
         except PermissionError:
-            self.msgBoxInfo("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
-        except MyError as e:
+            msgBox.msgBoxWarning("WARNING!, Target file or dir missing. ", "Error", "Convert robtarget2asterisk")
+        except MyMessages.MyError as e:
             exceptValue = e.value
             if exceptValue == 1:
-                self.msgBoxInfo("WARNING!, Setting the target-file path required. ",
+                msgBox.msgBoxWarning("WARNING!, Setting the target-file path required. ",
                                 "Error", "Convert robtarget2asterisk")
             elif exceptValue == 2:
-                self.msgBoxInfo("WARNING!, Setting the modified-file dir path required. ",
+                msgBox.msgBoxWarning("WARNING!, Setting the modified-file dir path required. ",
                                 "Error", "Convert robtarget2asterisk")
-
-    def msgBoxInfo(self,aText,aInfoText, aTitle):
-        msgBox = QtWidgets.QMessageBox()
-        msgBox.setIcon(QtWidgets.QMessageBox.Warning)
-        msgBox.setText(aText)
-        msgBox.setInformativeText(aInfoText)
-        msgBox.setWindowTitle(aTitle)
-        msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        msgBox.exec()
-
-    def msgBoxWarning(self,aText,aInfoText, aTitle):
-        msgBox = QtWidgets.QMessageBox()
-        msgBox.setIcon(QtWidgets.QMessageBox.Information)
-        msgBox.setText(aText)
-        msgBox.setInformativeText(aInfoText)
-        msgBox.setWindowTitle(aTitle)
-        msgBox.setStandardButtons(QtWidgets.QMessageBox.Ok)
-        msgBox.exec()
-
-
 
 
 if __name__ == "__main__":

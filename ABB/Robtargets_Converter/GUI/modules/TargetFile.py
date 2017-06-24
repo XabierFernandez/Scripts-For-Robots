@@ -8,7 +8,7 @@ import re
 
 
 class TargetFile(object):
-    def __init__(self,aFile_path, aKeyWordsList, aExcludedInst, aPrefix, aSuffix):
+    def __init__(self,aFile_path, aKeyWordsList, aExcludedInst, aPrefix='', aSuffix=''):
         self.file_object = None
         self.file_path = aFile_path
         self.fileArray = list()

@@ -15,8 +15,8 @@ class TargetFile(object):
         :param aFile_path:
         :param aKeyWordsList:
         :param aExcludedInst:
-        :param aPrefix:
-        :param aSuffix:
+        :param aPrefix: default value =''
+        :param aSuffix: default value =''
         """
         self.file_object = None
         self.file_path = aFile_path
@@ -28,7 +28,7 @@ class TargetFile(object):
         self.suffix = aSuffix
 
     def openTargetFile(self):
-        """Method that opens the target file"""
+        """Method that opens the target file, with read-only permission"""
         self.file_object = open(self.file_path, 'r')
 
     def closeTargetFile(self):

@@ -7,7 +7,7 @@ __version__ = '2017.01'
 __maintainer__ = 'Xabier Fernandez Gutierrez'
 __email__ = 'xabier.fernandez@outlook.com'
 
-# Form implementation generated from reading ui file 'C:\Users\xabie\OneDrive\Apps_Xabi\Scripts\Converter\GUI\Mainwindow.ui'
+# Form implementation generated from reading ui file 'Mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.8.2
 #
@@ -369,18 +369,30 @@ class Ui_MainWindow(object):
         self.actionUser_motion_instructions.setText(_translate("MainWindow", "User motion instructions"))
 
     def handlePbTarget (self):
+        """
+        Method that handles the click action of the 'Select target file' button.
+        Opens a dialog in order to select the target file.
+        """
         filename = QtWidgets.QFileDialog.getOpenFileName(MainWindow, "Open file", "C://",
                                                          "ABB Files (*.mod)")
         if filename:
             self.lineTarget.setText(filename[0])
 
     def handlePbMod (self):
+        """
+        Method that handles the click action of the 'Save Modified file to' button.
+        Opens a dialog in order to select the dir where the modified file will be store.
+        """
         dir = QtWidgets.QFileDialog.getExistingDirectory(MainWindow, "Open a folder", "C:/",
                                                          QtWidgets.QFileDialog.ShowDirsOnly)
         if dir:
             self.lineMod.setText(dir)
 
     def handlePbAddMove (self):
+        """
+        Method that handles the click action of the 'Add' button.
+        Add instruction given in textfield of the user interface.
+        """
         strInst = self.lineNewInst.text()
         strType = ''
 
@@ -400,6 +412,10 @@ class Ui_MainWindow(object):
             self.listUserMove.repaint()
 
     def handlePbDelMove (self):
+        """
+        Method that handles the click action of the 'Del' button.
+        Deletes instruction checked in the user interface list.
+        """
         removeList = list()
         for index in range(self.listUserMove.count()):
             check_box = self.listUserMove.itemWidget(self.listUserMove.item(index))
@@ -413,6 +429,10 @@ class Ui_MainWindow(object):
         self.listUserMove.repaint()
 
     def filledListUserMove (self):
+        """
+        Method that fills the list of keyword or instruction
+        in the user interface.
+        """
         for aItem in xml_file.getMovements():
             item = QtWidgets.QListWidgetItem(self.listUserMove)
             ch = QtWidgets.QCheckBox()
@@ -420,6 +440,10 @@ class Ui_MainWindow(object):
             self.listUserMove.setItemWidget(item, ch)
 
     def getCheckedItems (self):
+        """
+        Method that returns a list of the keyword or instruction
+        checked in the user interface.
+        """
         chekedList = list()
 
         for index in range(self.listUserMove.count()):
@@ -431,6 +455,10 @@ class Ui_MainWindow(object):
         return chekedList
 
     def getKeywordList (self):
+        """
+        Method that returns a list of the keyword or instruction
+        in the user interface.
+        """
         listItems = list()
 
         for index in range(self.listUserMove.count()):
@@ -439,6 +467,10 @@ class Ui_MainWindow(object):
         return listItems
 
     def runConvertAst2Robt (self):
+        """
+        Method that runs * to robtarget conversion.
+        Method call when pbAst2Robt button clicked
+        """
         msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()
@@ -481,6 +513,10 @@ class Ui_MainWindow(object):
                                      "Error", "Convert asterisk2robtarget")
 
     def runConvertRobt2Ast (self):
+        """
+        Method that runs robtarget to * conversion.
+        Method call when pbRobt2Ast button clicked
+        """
         msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()

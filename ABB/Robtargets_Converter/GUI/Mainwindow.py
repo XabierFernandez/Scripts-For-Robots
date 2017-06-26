@@ -7,7 +7,6 @@ __version__ = '2017.01'
 __maintainer__ = 'Xabier Fernandez Gutierrez'
 __email__ = 'xabier.fernandez@outlook.com'
 
-
 # Form implementation generated from reading ui file 'C:\Users\xabie\OneDrive\Apps_Xabi\Scripts\Converter\GUI\Mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.8.2
@@ -20,7 +19,7 @@ from modules import MyMessages
 
 
 class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
+    def setupUi (self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.setFixedSize(730, 467)
         MainWindow.setMaximumSize(MainWindow.size())
@@ -176,8 +175,8 @@ class Ui_MainWindow(object):
         # !!
         self.pbRobt2Ast.setGeometry(QtCore.QRect(10, 360, 211, 24))
         self.pbRobt2Ast.setStyleSheet("color: rgb(170, 0, 0);\n"
-"font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                      "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                      "background-color: rgb(193, 193, 193);")
         self.pbRobt2Ast.setObjectName("pbRobt2Ast")
         self.pbAst2Robt = QtWidgets.QPushButton(self.frame)
         # !!
@@ -185,8 +184,8 @@ class Ui_MainWindow(object):
         # !!
         self.pbAst2Robt.setGeometry(QtCore.QRect(10, 320, 211, 26))
         self.pbAst2Robt.setStyleSheet("color: rgb(0, 85, 255);\n"
-"font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                      "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                      "background-color: rgb(193, 193, 193);")
         self.pbAst2Robt.setObjectName("pbAst2Robt")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.frame)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 120, 201, 118))
@@ -198,25 +197,25 @@ class Ui_MainWindow(object):
         self.label.setMinimumSize(QtCore.QSize(199, 32))
         self.label.setMaximumSize(QtCore.QSize(16777215, 32))
         self.label.setStyleSheet("color: rgb(0, 0, 0);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
+                                 "font: 75 10pt \"MS Shell Dlg 2\";")
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.textPrefix = QtWidgets.QLineEdit(self.verticalLayoutWidget)
         self.textPrefix.setStyleSheet("border-color: rgb(170, 0, 0);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(255, 255, 255);\n"
-"")
+                                      "font: 12pt \"MS Shell Dlg 2\";\n"
+                                      "background-color: rgb(255, 255, 255);\n"
+                                      "")
         self.textPrefix.setObjectName("textPrefix")
         self.verticalLayout.addWidget(self.textPrefix)
         self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget)
         self.label_2.setStyleSheet("color: rgb(0, 0, 0);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
+                                   "font: 75 10pt \"MS Shell Dlg 2\";")
         self.label_2.setObjectName("label_2")
         self.verticalLayout.addWidget(self.label_2)
         self.textSuffix = QtWidgets.QLineEdit(self.verticalLayoutWidget)
         self.textSuffix.setStyleSheet("border-color: rgb(170, 0, 0);\n"
-"font: 12pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(255, 255, 255);")
+                                      "font: 12pt \"MS Shell Dlg 2\";\n"
+                                      "background-color: rgb(255, 255, 255);")
         self.textSuffix.setObjectName("textSuffix")
         self.verticalLayout.addWidget(self.textSuffix)
         self.formLayoutWidget = QtWidgets.QWidget(self.frame)
@@ -226,34 +225,34 @@ class Ui_MainWindow(object):
         self.formLayout.setContentsMargins(0, 0, 0, 0)
         self.formLayout.setObjectName("formLayout")
         self.pbTarget = QtWidgets.QPushButton(self.formLayoutWidget)
-        #!!
-        self.pbTarget.clicked.connect ( self.handlePbTarget )
+        # !!
+        self.pbTarget.clicked.connect(self.handlePbTarget)
         # !!
         self.pbTarget.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                    "background-color: rgb(193, 193, 193);")
         self.pbTarget.setObjectName("pbTarget")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.LabelRole, self.pbTarget)
         self.pbMod = QtWidgets.QPushButton(self.formLayoutWidget)
         # !!
-        self.pbMod.clicked.connect ( self.handlePbMod )
+        self.pbMod.clicked.connect(self.handlePbMod)
         # !!
         self.pbMod.setStyleSheet("font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                 "background-color: rgb(193, 193, 193);")
         self.pbMod.setObjectName("pbMod")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.LabelRole, self.pbMod)
         self.lineMod = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.lineMod.setStyleSheet("border-color: rgb(170, 0, 0);\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(255, 255, 255);\n"
-"")
+                                   "font: 10pt \"MS Shell Dlg 2\";\n"
+                                   "background-color: rgb(255, 255, 255);\n"
+                                   "")
         self.lineMod.setReadOnly(True)
         self.lineMod.setObjectName("lineMod")
         self.formLayout.setWidget(2, QtWidgets.QFormLayout.FieldRole, self.lineMod)
         self.lineTarget = QtWidgets.QLineEdit(self.formLayoutWidget)
         self.lineTarget.setStyleSheet("border-color: rgb(170, 0, 0);\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(255, 255, 255);\n"
-"")
+                                      "font: 10pt \"MS Shell Dlg 2\";\n"
+                                      "background-color: rgb(255, 255, 255);\n"
+                                      "")
         self.lineTarget.setReadOnly(True)
         self.lineTarget.setObjectName("lineTarget")
         self.formLayout.setWidget(1, QtWidgets.QFormLayout.FieldRole, self.lineTarget)
@@ -275,13 +274,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
         self.label_3.setStyleSheet("color: rgb(0, 0, 0);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
+                                   "font: 75 10pt \"MS Shell Dlg 2\";")
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.label_3)
         self.listUserMove = QtWidgets.QListWidget(self.verticalLayoutWidget_2)
         # !!
-        self.filledListUserMove ()
-        #!!
+        self.filledListUserMove()
+        # !!
         self.listUserMove.setMouseTracking(False)
         self.listUserMove.setStyleSheet("background-color: rgb(205, 52, 255);")
         self.listUserMove.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
@@ -296,13 +295,13 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
         self.label_4.setStyleSheet("color: rgb(0, 0, 0);\n"
-"font: 75 10pt \"MS Shell Dlg 2\";")
+                                   "font: 75 10pt \"MS Shell Dlg 2\";")
         self.label_4.setObjectName("label_4")
         self.verticalLayout_3.addWidget(self.label_4)
         self.lineNewInst = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)
         self.lineNewInst.setStyleSheet("border-color: rgb(170, 0, 0);\n"
-"font: 10pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(255, 255, 255);")
+                                       "font: 10pt \"MS Shell Dlg 2\";\n"
+                                       "background-color: rgb(255, 255, 255);")
         self.lineNewInst.setObjectName("lineNewInst")
         self.verticalLayout_3.addWidget(self.lineNewInst)
         self.radioButton_2 = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
@@ -316,11 +315,11 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.pbAddMove = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
         # !!
-        self.pbAddMove.clicked.connect ( self.handlePbAddMove )
+        self.pbAddMove.clicked.connect(self.handlePbAddMove)
         # !!
         self.pbAddMove.setStyleSheet("color: rgb(0, 85, 255);\n"
-"font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                     "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                     "background-color: rgb(193, 193, 193);")
         self.pbAddMove.setObjectName("pbAddMove")
         self.horizontalLayout_2.addWidget(self.pbAddMove)
         self.pbDelMove = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
@@ -328,8 +327,8 @@ class Ui_MainWindow(object):
         self.pbDelMove.clicked.connect(self.handlePbDelMove)
         # !!
         self.pbDelMove.setStyleSheet("color: rgb(170, 0, 0);\n"
-"font: 75 11pt \"MS Shell Dlg 2\";\n"
-"background-color: rgb(193, 193, 193);")
+                                     "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                     "background-color: rgb(193, 193, 193);")
         self.pbDelMove.setObjectName("pbDelMove")
         self.horizontalLayout_2.addWidget(self.pbDelMove)
         self.verticalLayout_3.addLayout(self.horizontalLayout_2)
@@ -352,7 +351,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi (self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "ABB RapidTools_v2017.01 [by X.Fernandez]"))
         self.pbRobt2Ast.setText(_translate("MainWindow", "Convert from Robtarget to *"))
@@ -369,21 +368,21 @@ class Ui_MainWindow(object):
         self.pbDelMove.setText(_translate("MainWindow", "Del"))
         self.actionUser_motion_instructions.setText(_translate("MainWindow", "User motion instructions"))
 
-    def handlePbTarget ( self ):
-        filename = QtWidgets.QFileDialog.getOpenFileName ( MainWindow, "Open file", "C://",
-                                                       "ABB Files (*.mod)" )
+    def handlePbTarget (self):
+        filename = QtWidgets.QFileDialog.getOpenFileName(MainWindow, "Open file", "C://",
+                                                         "ABB Files (*.mod)")
         if filename:
-            self.lineTarget.setText (filename[0])
+            self.lineTarget.setText(filename[0])
 
-    def handlePbMod(self):
+    def handlePbMod (self):
         dir = QtWidgets.QFileDialog.getExistingDirectory(MainWindow, "Open a folder", "C:/",
-                                                       QtWidgets.QFileDialog.ShowDirsOnly)
+                                                         QtWidgets.QFileDialog.ShowDirsOnly)
         if dir:
             self.lineMod.setText(dir)
 
-    def handlePbAddMove(self):
+    def handlePbAddMove (self):
         strInst = self.lineNewInst.text()
-        strType =''
+        strType = ''
 
         if self.radioButton.isChecked():
             strType = 'Lineal'
@@ -392,7 +391,7 @@ class Ui_MainWindow(object):
             strType = 'Joint'
 
         if strType and strInst and not xml_file.findDuplicates(strInst):
-            xml_file.appendMovement( strInst, strType )
+            xml_file.appendMovement(strInst, strType)
             item = QtWidgets.QListWidgetItem(self.listUserMove)
             ch = QtWidgets.QCheckBox()
             ch.setText(strInst)
@@ -400,27 +399,27 @@ class Ui_MainWindow(object):
             self.lineNewInst.setText('')
             self.listUserMove.repaint()
 
-    def handlePbDelMove(self):
+    def handlePbDelMove (self):
         removeList = list()
         for index in range(self.listUserMove.count()):
             check_box = self.listUserMove.itemWidget(self.listUserMove.item(index))
             state = check_box.checkState()
-            if state==2:
+            if state == 2:
                 removeList.append(check_box.text())
-        for strRemove in  removeList:
+        for strRemove in removeList:
             xml_file.removeMovement(strRemove)
         self.listUserMove.clear()
         self.filledListUserMove()
         self.listUserMove.repaint()
 
-    def filledListUserMove(self):
+    def filledListUserMove (self):
         for aItem in xml_file.getMovements():
-            item = QtWidgets.QListWidgetItem ( self.listUserMove )
-            ch = QtWidgets.QCheckBox ()
+            item = QtWidgets.QListWidgetItem(self.listUserMove)
+            ch = QtWidgets.QCheckBox()
             ch.setText(aItem)
             self.listUserMove.setItemWidget(item, ch)
 
-    def getCheckedItems(self):
+    def getCheckedItems (self):
         chekedList = list()
 
         for index in range(self.listUserMove.count()):
@@ -431,15 +430,15 @@ class Ui_MainWindow(object):
 
         return chekedList
 
-    def getKeywordList(self):
+    def getKeywordList (self):
         listItems = list()
 
         for index in range(self.listUserMove.count()):
             check_box = self.listUserMove.itemWidget(self.listUserMove.item(index))
-            listItems.append (check_box.text())
+            listItems.append(check_box.text())
         return listItems
 
-    def runConvertAst2Robt(self):
+    def runConvertAst2Robt (self):
         msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()
@@ -455,13 +454,13 @@ class Ui_MainWindow(object):
                 raise MyMessages.MyError(2)
             if not strPrefix:
                 raise MyMessages.MyError(3)
-            #====================================================================================================
+            # ====================================================================================================
             targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList, strPrefix, strSuffix)
             targetFileObject.processAst2RobtTargetFile()
             # ====================================================================================================
-            modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
-                                              targetFileObject.getSubFileArray(), strPrefix, strSuffix )
-            modFileObject.processAst2RobtModFile ()
+            modFileObject = ModFile.ModFile(strMod, targetFileObject.getFileArray(),
+                                            targetFileObject.getSubFileArray(), strPrefix, strSuffix)
+            modFileObject.processAst2RobtModFile()
             # ====================================================================================================
             msgBox.msgBoxInfo("Asterisk to robtarget converted", "Process finish", "Convert asterisk2robtarget")
             # ====================================================================================================
@@ -473,15 +472,15 @@ class Ui_MainWindow(object):
             exceptValue = e.value
             if exceptValue == 1:
                 msgBox.msgBoxWarning("WARNING!, Setting the target-file path required. ",
-                                "Error", "Convert asterisk2robtarget")
+                                     "Error", "Convert asterisk2robtarget")
             elif exceptValue == 2:
                 msgBox.msgBoxWarning("WARNING!, Setting the modified-file dir path required. ",
-                                "Error", "Convert asterisk2robtarget")
+                                     "Error", "Convert asterisk2robtarget")
             elif exceptValue == 3:
                 msgBox.msgBoxWarning("WARNING!, Setting the prefix-field required. ",
-                                "Error", "Convert asterisk2robtarget")
+                                     "Error", "Convert asterisk2robtarget")
 
-    def runConvertRobt2Ast(self):
+    def runConvertRobt2Ast (self):
         msgBox = MyMessages.MyMsg()
         try:
             keywordList = self.getKeywordList()
@@ -493,13 +492,13 @@ class Ui_MainWindow(object):
                 raise MyMessages.MyError(1)
             if not strMod:
                 raise MyMessages.MyError(2)
-            #====================================================================================================
+            # ====================================================================================================
             targetFileObject = TargetFile.TargetFile(strTarget, keywordList, excludedList)
             targetFileObject.processRobt2AstTargetFile()
             # ====================================================================================================
-            modFileObject = ModFile.ModFile ( strMod, targetFileObject.getFileArray(),
-                                              targetFileObject.getSubFileArray())
-            modFileObject.processRobt2AstModFile ()
+            modFileObject = ModFile.ModFile(strMod, targetFileObject.getFileArray(),
+                                            targetFileObject.getSubFileArray())
+            modFileObject.processRobt2AstModFile()
             # ====================================================================================================
             msgBox.msgBoxInfo("Robtarget to asterisk converted", "Process finish", "Convert robtarget2asterisk")
             # ====================================================================================================
@@ -511,18 +510,18 @@ class Ui_MainWindow(object):
             exceptValue = e.value
             if exceptValue == 1:
                 msgBox.msgBoxWarning("WARNING!, Setting the target-file path required. ",
-                                "Error", "Convert robtarget2asterisk")
+                                     "Error", "Convert robtarget2asterisk")
             elif exceptValue == 2:
                 msgBox.msgBoxWarning("WARNING!, Setting the modified-file dir path required. ",
-                                "Error", "Convert robtarget2asterisk")
+                                     "Error", "Convert robtarget2asterisk")
 
 
 if __name__ == "__main__":
     import sys
+
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
-

@@ -9,6 +9,15 @@ import re
 
 class TargetFile(object):
     def __init__(self,aFile_path, aKeyWordsList, aExcludedInst, aPrefix='', aSuffix=''):
+        """
+        Constructor and initializer of the target file. File with extension .MOD
+        This is the file we want to modify.
+        :param aFile_path:
+        :param aKeyWordsList:
+        :param aExcludedInst:
+        :param aPrefix:
+        :param aSuffix:
+        """
         self.file_object = None
         self.file_path = aFile_path
         self.fileArray = list()
@@ -19,12 +28,19 @@ class TargetFile(object):
         self.suffix = aSuffix
 
     def openTargetFile(self):
+        """Method that opens the target file"""
         self.file_object = open(self.file_path, 'r')
 
     def closeTargetFile(self):
+        """Method that closes the target file."""
         self.file_object.close()
 
     def checkLinesAst2Robt(self):
+        """
+        Method that searches and checks if any line of the target file meets
+        with the rules(patterns) given. This is use during * to robtarget conversion.
+        If a string meets the rules, it is store in a list declared as SubFileArray.
+        """
         pointnum = 1
         s = ''
         for line in range (len(self.fileArray)):
@@ -39,6 +55,9 @@ class TargetFile(object):
                 pointnum = pointnum + 1
 
     def checkLinesRobt2Ast(self):
+        """Method that searches and checks if any line of the target file meets
+        with the rules(patterns) given. This is use when robtarget to * conversion
+        """
         dict = self.getRobtargetPoints()
         listPoints = dict.keys()
         matchedPoints = list()
@@ -56,14 +75,26 @@ class TargetFile(object):
             else:
                 self.subFileArray.append(self.fileArray[line])
 
-
     def checkStrInLists(self, aStr, aList):
+        """
+        Method that checks if an element of a List is found inside a String.
+        Returns True/False
+        """
         return (any ( x in aStr for x in aList ))
 
     def checkCharInStr(self, aChar, aStr):
+        """
+        Method that checks if a character or string is found inside another String.
+        Returns True/False
+        """
         return (aChar in aStr)
 
     def checkCharInStrMatched(self, aStr1, aList):
+        """
+        Method that checks if a character or string is found inside another String.
+        The search considers the whole word.
+        Returns True/False
+        """
         result = False
         for str in aList:
             if self.searchMatchWord(str, aStr1):
@@ -73,29 +104,53 @@ class TargetFile(object):
 
 
     def searchMatchWord (self,string1, string2):
+        """
+        Method that search for whole word match
+        Returns True/False
+        """
         if re.search(r"\b" + re.escape(string1) + r"\b", string2):
             return True
         return False
 
-    def checkRulesRobt2Ast (self, aStr, Points):
+    def checkRulesRobt2Ast (self, aStr, aListPoints):
+        """
+        Method that check a string against the rules for robtarget to * conversion.
+        -rule1: keywords must be in the aStr.
+        -rule2: excluded keywords(instructions) must not be in the aStr.
+        -rule3: list of points declared as robtarget must be in the aStr.
+        Returns True/False
+        """
         return self.checkStrInLists(aStr, self.keyWordsFile) and not \
             self.checkStrInLists(aStr, self.excludedInstructions) \
-               and not self.checkCharInStr('robtarget', aStr.lower()) and self.checkStrInLists(aStr, Points)
+               and not self.checkCharInStr('robtarget', aStr.lower()) and self.checkStrInLists(aStr, aListPoints)
 
     def checkRulesAst2Robt(self, aStr):
+        """
+        Method that check a string against the rules for * to robtarget conversion.
+        -rule1: keywords must be in the aStr.
+        -rule2: excluded keywords(instructions) must not be in the aStr.
+        -rule3: String must contain '[[' characters and not '!' character(comment symbol).
+        Returns True/False
+        """
         return self.checkStrInLists(aStr, self.keyWordsFile) and not \
             self.checkStrInLists(aStr, self.excludedInstructions) \
             and not self.checkCharInStr('!', aStr) and self.checkCharInStr('[[', aStr)
 
     def readTargetFileLines(self):
+        """
+        Method that reads a file line by line and stores this lines in a list.
+        """
         for line in self.file_object.readlines ():
-            self.fileArray.append ( line )
+            self.fileArray.append(line)
             self.closeTargetFile()
 
     def getRobtargetPoints(self):
+        """
+        Method that reads a list of strings and searches if robtarget declaration keyword is in it.
+        """
         dictPointCoord = dict()
 
-        for line in range ( len ( self.fileArray ) ):
+        for line in range(len(self.fileArray)):
             if 'robtarget' in self.fileArray[line].lower():
                 #################################
                 s1 = self.fileArray[line]
@@ -113,18 +168,34 @@ class TargetFile(object):
         return dictPointCoord
 
     def getFileArray(self):
+        """
+        Method that returns a list of strings.
+        In this case, the list represents the file's line.
+        Returns list
+        """
         return self.fileArray
 
     def getSubFileArray(self):
+        """
+        Method that returns a list of strings.
+        In this case, SubFileArray list.
+        Returns list
+        """
         return self.subFileArray
 
     def processAst2RobtTargetFile(self):
+        """
+        Method that processes * to robtarget conversion.
+        """
         self.openTargetFile()
         self.readTargetFileLines()
         self.checkLinesAst2Robt()
 
 
     def processRobt2AstTargetFile(self):
+        """
+        Method that processes robtarget to ^ conversion.
+        """
         self.openTargetFile()
         self.readTargetFileLines()
         self.checkLinesRobt2Ast()

@@ -272,11 +272,26 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
+        # ===============================================
         self.label_3 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
         self.label_3.setStyleSheet("color: rgb(0, 0, 0);\n"
-                                   "font: 75 10pt \"MS Shell Dlg 2\";")
+                                   "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                    "text-decoration: underline;")
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.label_3)
+        # ===============================================
+        self.label_5 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.label_5.setStyleSheet("color: rgb(0, 0, 0);\n"
+                                   "font: 75 9pt \"MS Shell Dlg 2\";\n")
+        self.label_5.setObjectName("label_5")
+        self.verticalLayout_2.addWidget(self.label_5)
+        #===============================================
+        self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.label_6.setStyleSheet("color: rgb(0, 0, 0);\n"
+                                   "font: 75 9pt \"MS Shell Dlg 2\";")
+        self.label_6.setObjectName("label_6")
+        self.verticalLayout_2.addWidget(self.label_6)
+        # ===============================================
         self.listUserMove = QtWidgets.QListWidget(self.verticalLayoutWidget_2)
         # !!
         self.filledListUserMove()
@@ -295,7 +310,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
         self.label_4.setStyleSheet("color: rgb(0, 0, 0);\n"
-                                   "font: 75 10pt \"MS Shell Dlg 2\";")
+                                   "font: 75 11pt \"MS Shell Dlg 2\";")
         self.label_4.setObjectName("label_4")
         self.verticalLayout_3.addWidget(self.label_4)
         self.lineNewInst = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)
@@ -361,11 +376,13 @@ class Ui_MainWindow(object):
         self.pbTarget.setText(_translate("MainWindow", "Select target file"))
         self.pbMod.setText(_translate("MainWindow", "Save modified file to:"))
         self.label_3.setText(_translate("MainWindow", "User Motion Instructions"))
+        self.label_5.setText(_translate("MainWindow", "* tick the box of the instruction you \nwould like to exclude from the conversion"))
+        self.label_6.setText(_translate("MainWindow", "** tick the box of the instruction you \nwould like to delete and click 'Delete' button"))
         self.label_4.setText(_translate("MainWindow", "New motion instruction"))
         self.radioButton_2.setText(_translate("MainWindow", "Joint"))
         self.radioButton.setText(_translate("MainWindow", "Lineal"))
         self.pbAddMove.setText(_translate("MainWindow", "Add"))
-        self.pbDelMove.setText(_translate("MainWindow", "Del"))
+        self.pbDelMove.setText(_translate("MainWindow", "Delete"))
         self.actionUser_motion_instructions.setText(_translate("MainWindow", "User motion instructions"))
 
     def handlePbTarget (self):
@@ -413,7 +430,7 @@ class Ui_MainWindow(object):
 
     def handlePbDelMove (self):
         """
-        Method that handles the click action of the 'Del' button.
+        Method that handles the click action of the 'Delete' button.
         Deletes instruction checked in the user interface list.
         """
         removeList = list()

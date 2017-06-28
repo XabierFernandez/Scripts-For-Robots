@@ -112,8 +112,8 @@ def writeToModFile():
     for line in fileArray:
         if ('MODULE' in fileArray[line].upper () and 'ENDMODULE' not in fileArray[line].upper () ):
             file_object1.write ( fileArray[line] )
-            for line1 in range ( len ( subFileArray ) ):
-                file_object1.write('LOCAL CONST robtarget ' + prefix + str(line1+1) + suffix + ':=' + subFileArray[line1] + '\n' )
+            for idx,line1 in enumerate(subFileArray):
+                file_object1.write('LOCAL CONST robtarget ' + prefix + str(idx+1) + suffix + ':=' + line1 + '\n' )
         else:
             file_object1.write ( fileArray[line] )
     file_object1.close ()

@@ -9,7 +9,6 @@ def getMovements():
   listMove = list()  
   for instruction in root:
     listMove.append(instruction.attrib['name'])
-    
   return listMove
 #=====================================
 def appendMovement(aName, aType):

@@ -53,7 +53,7 @@ def getTargetFile():
     except FileNotFoundError:
         Mbox('WARNING!', 'Target file not found.')
         sys.exit(0)
-
+#======================================
 def readTargetFileLines():
     global file_object
     global fileArray
@@ -61,7 +61,7 @@ def readTargetFileLines():
     for line in file_object.readlines ():
         fileArray.append(line)
     file_object.close()
-
+#======================================
 def checkLines():
     global fileArray
     global prefix
@@ -78,22 +78,20 @@ def checkLines():
             subFileArray.append(s2)
             fileArray[line] = s1.replace ( s2, prefix + str( pointnum ) + suffix )
             pointnum = pointnum + 1
+#======================================
 def checkStrInLists(aStr, aList):
     return (any(x in aStr for x in aList))
-
+#======================================
 def checkCharInStr(aChar, aStr):
     return (aChar in aStr)
-
+#======================================
 def checkRules(aStr):
     global excludedInstructions
     global keyWordsFile
 
     return checkStrInLists ( aStr, keyWordsFile ) and not checkStrInLists ( aStr,excludedInstructions ) \
             and not checkCharInStr ( '!', aStr ) and checkCharInStr ( '[[', aStr )
-    
-
 ########## Modified File ##########
-
 def createModFile():
     global file_object1
     global file_name
@@ -103,7 +101,7 @@ def createModFile():
     except FileNotFoundError:
         Mbox('WARNING!', 'Target file not found.')
         sys.exit(0)
-
+#======================================
 def writeToModFile():
     global file_object1
 
@@ -115,14 +113,12 @@ def writeToModFile():
         else:
             file_object1.write ( fileArray[line] )
     file_object1.close ()
-
 ########### GUI features ###################
-
 def Mbox(title, text):
     window = tk.Tk()
     window.wm_withdraw()
     mbox.showinfo(title, text)
-
+#======================================
 def makeEntry():
     global E1
     global E2
@@ -144,7 +140,7 @@ def makeEntry():
     tk.Button ( master, text='Continue', command=getEntryFields ).grid ( row=4, column=1, sticky=tk.W, pady=4 )
 
     tk.mainloop ()
-
+#======================================
 def getEntryFields():
     global master
     global E1
@@ -162,15 +158,13 @@ def getEntryFields():
         excludedInstructions = E3.get().split(',')
 
     master.quit ()
-
+#======================================
 def quitEntry():
     global master
 
     master.quit ()
     sys.exit ( 0 )
-
-#############################################
-
+#======================================
 def main():
     makeEntry()
     getTargetFile()

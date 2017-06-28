@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from defusedxml import ElementTree as ET
 
 file_name = "UserMotions.xml"
@@ -6,7 +7,7 @@ root = doc.getroot()
 #=====================================
 def getMovements():
   global root
-  listMove = list()  
+  listMove=list()
   for instruction in root:
     listMove.append(instruction.attrib['name'])
   return listMove
@@ -15,7 +16,6 @@ def appendMovement(aName, aType):
   global root
   global doc
   global file_name
-
   b = ET.Element('Instruction', name = aName,typemove = aType)
   root.append(b)
   doc.write(file_name)
@@ -23,7 +23,6 @@ def appendMovement(aName, aType):
 def removeMovement(aMove):
   global root
   global file_name
-  
   for instruction in root:
     if instruction.attrib['name'] == aMove:
       parent=instruction.getparent()
@@ -33,10 +32,8 @@ def removeMovement(aMove):
 def findDuplicates(aMove):
   aList = getMovements()
   result = False
-
   for aStr in aList:
     if aStr.lower() == aMove.lower():
       result = True
       break
-
   return result

@@ -74,7 +74,7 @@ class TargetFile(object):
                 self.subFileArray.append(line)
 
     @classmethod
-    def checkStrInLists(self, aStr, aList):
+    def checkStrInLists(cls, aStr, aList):
         """
         Method that checks if an element of a List is found inside a String.
         Returns True/False
@@ -82,7 +82,7 @@ class TargetFile(object):
         return (any ( x in aStr for x in aList ))
 
     @classmethod
-    def checkStrInStr(self, aChar, aStr):
+    def checkStrInStr(cls, aChar, aStr):
         """
         Method that checks if a character or string is found inside another String.
         Returns True/False
@@ -103,7 +103,7 @@ class TargetFile(object):
         return result
 
     @classmethod
-    def searchMatchWord (self,string1, string2):
+    def searchMatchWord (cls,string1, string2):
         """
         Method that search for whole word match
         Returns True/False

@@ -78,10 +78,8 @@ def checkLines():
             subFileArray.append(s2)
             fileArray[line] = s1.replace ( s2, prefix + str( pointnum ) + suffix )
             pointnum = pointnum + 1
-            
 def checkStrInLists(aStr, aList):
     return (any(x in aStr for x in aList))
-     
 
 def checkCharInStr(aChar, aStr):
     return (aChar in aStr)

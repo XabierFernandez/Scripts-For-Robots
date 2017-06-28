@@ -68,8 +68,7 @@ def checkLines():
     global suffix
 
     pointnum = 1
-    s = ''
-    for line in range(len(fileArray)):
+    for line in fileArray:
         if checkRules(fileArray[line]):
             s1 = fileArray[line]
             s2 = fileArray[line]
@@ -110,7 +109,7 @@ def createModFile():
 def writeToModFile():
     global file_object1
 
-    for line in range ( len ( fileArray ) ):
+    for line in fileArray:
         if ('MODULE' in fileArray[line].upper () and 'ENDMODULE' not in fileArray[line].upper () ):
             file_object1.write ( fileArray[line] )
             for line1 in range ( len ( subFileArray ) ):

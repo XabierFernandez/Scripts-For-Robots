@@ -400,10 +400,10 @@ class Ui_MainWindow(object):
         Method that handles the click action of the 'Save Modified file to' button.
         Opens a dialog in order to select the dir where the modified file will be store.
         """
-        dir = QtWidgets.QFileDialog.getExistingDirectory(MainWindow, "Open a folder", "C:/",
+        directory = QtWidgets.QFileDialog.getExistingDirectory(MainWindow, "Open a folder", "C:/",
                                                          QtWidgets.QFileDialog.ShowDirsOnly)
-        if dir:
-            self.lineMod.setText(dir)
+        if directory:
+            self.lineMod.setText(directory)
 
     def handlePbAddMove (self):
         """

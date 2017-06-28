@@ -42,39 +42,38 @@ class TargetFile(object):
         If a string meets the rules, it is store in a list declared as SubFileArray.
         """
         pointnum = 1
-        s = ''
-        for line in range (len(self.fileArray)):
-            if self.checkRulesAst2Robt( self.fileArray[line] ):
-                s1 = self.fileArray[line]
-                s2 = self.fileArray[line]
+        for idx,line in enumerate(self.fileArray):
+            if self.checkRulesAst2Robt(line):
+                s1 = line
+                s2 = line
                 start = s2.find('[[')
                 end = s2.find(']]')
                 s2 = s2[start:end + 2]
                 self.subFileArray.append(s2)
-                self.fileArray[line] = s1.replace(s2, self.prefix + str(pointnum) + self.suffix)
+                self.fileArray[idx] = s1.replace(s2, self.prefix + str(pointnum) + self.suffix)
                 pointnum = pointnum + 1
 
     def checkLinesRobt2Ast(self):
         """Method that searches and checks if any line of the target file meets
         with the rules(patterns) given. This is use when robtarget to * conversion
         """
-        dict = self.getRobtargetPoints()
-        listPoints = dict.keys()
+        dictionary = self.getRobtargetPoints()
+        listPoints = dictionary.keys()
         matchedPoints = list()
 
-        for line in range(len(self.fileArray)):
-            if self.checkRulesRobt2Ast( self.fileArray[line],listPoints ):
+        for idx,line in enumerate(self.fileArray):
+            if self.checkRulesRobt2Ast(line,listPoints):
                 for point in listPoints:
-                    if self.searchMatchWord(point,self.fileArray[line]):
-                        self.fileArray[line] = self.fileArray[line].replace(point,dict.get(point))
+                    if self.searchMatchWord(point,line):
+                        self.fileArray[idx] = line.replace(point,dictionary.get(point))
                         matchedPoints.append(point)
-        for line in range(len(self.fileArray)):
-            if self.checkCharInStr('robtarget',self.fileArray[line]) and \
-                self.checkCharInStrMatched(self.fileArray[line], matchedPoints):
+        for line in self.fileArray:
+            if self.checkStrInStr('robtarget', line) and self.checkStrInStrMatched(line, matchedPoints):
                 pass
             else:
-                self.subFileArray.append(self.fileArray[line])
+                self.subFileArray.append(line)
 
+    @classmethod
     def checkStrInLists(self, aStr, aList):
         """
         Method that checks if an element of a List is found inside a String.
@@ -82,27 +81,28 @@ class TargetFile(object):
         """
         return (any ( x in aStr for x in aList ))
 
-    def checkCharInStr(self, aChar, aStr):
+    @classmethod
+    def checkStrInStr(self, aChar, aStr):
         """
         Method that checks if a character or string is found inside another String.
         Returns True/False
         """
         return (aChar in aStr)
 
-    def checkCharInStrMatched(self, aStr1, aList):
+    def checkStrInStrMatched(self, aStr1, aList):
         """
         Method that checks if a character or string is found inside another String.
         The search considers the whole word.
         Returns True/False
         """
         result = False
-        for str in aList:
-            if self.searchMatchWord(str, aStr1):
+        for aStr in aList:
+            if self.searchMatchWord(aStr, aStr1):
                 result = True
                 break
         return result
 
-
+    @classmethod
     def searchMatchWord (self,string1, string2):
         """
         Method that search for whole word match
@@ -122,7 +122,7 @@ class TargetFile(object):
         """
         return self.checkStrInLists(aStr, self.keyWordsFile) and not \
             self.checkStrInLists(aStr, self.excludedInstructions) \
-               and not self.checkCharInStr('robtarget', aStr.lower()) and self.checkStrInLists(aStr, aListPoints)
+               and not self.checkStrInStr('robtarget', aStr.lower()) and self.checkStrInLists(aStr, aListPoints)
 
     def checkRulesAst2Robt(self, aStr):
         """
@@ -134,7 +134,7 @@ class TargetFile(object):
         """
         return self.checkStrInLists(aStr, self.keyWordsFile) and not \
             self.checkStrInLists(aStr, self.excludedInstructions) \
-            and not self.checkCharInStr('!', aStr) and self.checkCharInStr('[[', aStr)
+            and not self.checkStrInStr('!', aStr) and self.checkStrInStr('[[', aStr)
 
     def readTargetFileLines(self):
         """
@@ -150,16 +150,16 @@ class TargetFile(object):
         """
         dictPointCoord = dict()
 
-        for line in range(len(self.fileArray)):
-            if 'robtarget' in self.fileArray[line].lower():
+        for line in self.fileArray:
+            if 'robtarget' in line.lower():
                 #################################
-                s1 = self.fileArray[line]
+                s1 = line
                 startRobt1 = s1.find('robtarget')
                 endRobt1 = s1.find(':=')
                 s1 = s1[startRobt1 + 9:endRobt1]
                 s1 = s1.strip()
                 #################################
-                s2 = self.fileArray[line]
+                s2 = line
                 startRobt2 = s2.find('[[')
                 endRobt2 = s2.find(']]')
                 s2 = s2[startRobt2:endRobt2 + 2]

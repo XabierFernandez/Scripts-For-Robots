@@ -35,14 +35,15 @@ class ModFile(object):
         Method that writes to the modified file.
         Method call during * to robtarget conversion.
         """
-        for line in range ( len( self.fileArrayList ) ):
-            if('MODULE' in self.fileArrayList[line].upper() and 'ENDMODULE' not in self.fileArrayList[line].upper()):
-                self.file_object.write( self.fileArrayList[line] )
-                for line1 in range( len( self.subFileArrayList ) ):
-                    self.file_object.write('LOCAL CONST robtarget ' + self.prefix + str(line1 + 1)
-                                           + self.suffix + ':=' + self.subFileArrayList[line1] + ';' + '\n' )
+        for line in self.fileArrayList:
+            if('MODULE' in line.upper() and 'ENDMODULE' not in line.upper()):
+                self.file_object.write(line)
+                #==============================================================================
+                for idx,line1 in enumerate(self.subFileArrayList):
+                    self.file_object.write('LOCAL CONST robtarget ' + self.prefix + str(idx + 1)
+                                           + self.suffix + ':=' + line1 + ';' + '\n' )
             else:
-                self.file_object.write( self.fileArrayList[line] )
+                self.file_object.write(line)
         self.closeModFile()
 
     def writeToModRobt2AstFile (self):
@@ -50,8 +51,8 @@ class ModFile(object):
         Method that writes to the modified file.
         Method call during robtarget to * conversion.
         """
-        for line in range ( len( self.subFileArrayList ) ):
-            self.file_object.write( self.subFileArrayList[line] )
+        for line in self.subFileArrayList:
+            self.file_object.write(line)
         self.closeModFile()
 
 

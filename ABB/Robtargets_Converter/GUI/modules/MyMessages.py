@@ -28,4 +28,3 @@ class MyMsg():
         self.msgBox.setWindowTitle(aTitle)
         self.msgBox.setStandardButtons(QMessageBox.Ok)
         self.msgBox.exec()
-        

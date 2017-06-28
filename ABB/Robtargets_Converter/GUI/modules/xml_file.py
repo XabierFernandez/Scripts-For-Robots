@@ -1,5 +1,4 @@
-from lxml import etree as ET
-
+from defusedxml import ElementTree as ET
 
 file_name = "UserMotions.xml"
 
@@ -8,7 +7,7 @@ root = doc.getroot()
 
 def getMovements():
   global root
-  
+
   listMove = list()  
   for instruction in root:
     listMove.append(instruction.attrib['name'])
@@ -39,8 +38,8 @@ def findDuplicates(aMove):
   aList = getMovements()
   result = False
 
-  for str in aList:
-    if str.lower() == aMove.lower():
+  for aStr in aList:
+    if aStr.lower() == aMove.lower():
       result = True
       break
 

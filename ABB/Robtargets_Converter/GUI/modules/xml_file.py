@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from defusedxml import ElementTree as ET
+from lxml import etree as ET
 
 file_name = "UserMotions.xml"
 doc = ET.parse(file_name)

@@ -44,14 +44,28 @@ class TargetFile(object):
         pointnum = 1
         for idx,line in enumerate(self.fileArray):
             if self.checkRulesAst2Robt(line):
-                s1 = line
-                s2 = line
-                start = s2.find('[[')
-                end = s2.find(']]')
-                s2 = s2[start:end + 2]
-                self.subFileArray.append(s2)
-                self.fileArray[idx] = s1.replace(s2, self.prefix + str(pointnum) + self.suffix)
-                pointnum = pointnum + 1
+                #=====Get substring of robtarget===============
+                start = line.find('[[')
+                end = line.find(']]')
+                s1 = line[start:end + 2]
+
+                self.subFileArray.append(s1)
+                strTemp = line.replace(s1, self.prefix + str(pointnum) + self.suffix)
+
+                # ====== Search if asterisk appears twice in line(for circular movements) ==============
+                s2 = strTemp[end+2:]
+                if self.checkStrInStr('[[', s2) and self.checkStrInStr(']]', s2):
+                    pointnum += 1
+                    # =====Get substring of robtarget===============
+                    start = s2.find('[[')
+                    end = s2.find(']]')
+                    s2 = s2[start:end + 2]
+
+                    self.subFileArray.append(s2)
+                    strTemp = strTemp.replace(s2, self.prefix + str(pointnum) + self.suffix)
+                # ====================
+                self.fileArray[idx] = strTemp[idx].replace(s2, self.prefix + str(pointnum) + self.suffix)
+                pointnum += 1
 
     def checkLinesRobt2Ast(self):
         """Method that searches and checks if any line of the target file meets
@@ -129,12 +143,14 @@ class TargetFile(object):
         Method that check a string against the rules for * to robtarget conversion.
         -rule1: keywords must be in the aStr.
         -rule2: excluded keywords(instructions) must not be in the aStr.
-        -rule3: String must contain '[[' characters and not '!' character(comment symbol).
+        -rule3: String must contain '[[' characters and String must contain '[[' characters
+        -rule4: String must not contain '!' character(comment symbol).
         Returns True/False
         """
         return self.checkStrInLists(aStr, self.keyWordsFile) and not \
             self.checkStrInLists(aStr, self.excludedInstructions) \
-            and not self.checkStrInStr('!', aStr) and self.checkStrInStr('[[', aStr)
+            and not self.checkStrInStr('!', aStr) and self.checkStrInStr('[[', aStr) \
+            and self.checkStrInStr(']]', aStr)
 
     def readTargetFileLines(self):
         """

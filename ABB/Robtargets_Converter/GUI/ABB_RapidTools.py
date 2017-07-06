@@ -303,7 +303,7 @@ class Ui_MainWindow(object):
         self.listUserMove.setObjectName("listUserMove")
         self.verticalLayout_2.addWidget(self.listUserMove)
         self.verticalLayoutWidget_3 = QtWidgets.QWidget(self.frame_2)
-        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(10, 260, 169, 129))
+        self.verticalLayoutWidget_3.setGeometry(QtCore.QRect(10, 260, 169, 136))
         self.verticalLayoutWidget_3.setObjectName("verticalLayoutWidget_3")
         self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_3)
         self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
@@ -319,13 +319,20 @@ class Ui_MainWindow(object):
                                        "background-color: rgb(255, 255, 255);")
         self.lineNewInst.setObjectName("lineNewInst")
         self.verticalLayout_3.addWidget(self.lineNewInst)
+
+        self.radioButton_1 = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
+        self.radioButton_1.setChecked(True)
+        self.radioButton_1.setObjectName("radioButton_1")
+        self.verticalLayout_3.addWidget(self.radioButton_1)
+
         self.radioButton_2 = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
         self.radioButton_2.setObjectName("radioButton_2")
         self.verticalLayout_3.addWidget(self.radioButton_2)
-        self.radioButton = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
-        self.radioButton.setChecked(True)
-        self.radioButton.setObjectName("radioButton")
-        self.verticalLayout_3.addWidget(self.radioButton)
+
+        self.radioButton_3 = QtWidgets.QRadioButton(self.verticalLayoutWidget_3)
+        self.radioButton_3.setObjectName("radioButton_3")
+        self.verticalLayout_3.addWidget(self.radioButton_3)
+
         self.horizontalLayout_2 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
         self.pbAddMove = QtWidgets.QPushButton(self.verticalLayoutWidget_3)
@@ -379,8 +386,9 @@ class Ui_MainWindow(object):
         self.label_5.setText(_translate("MainWindow", "* tick the box of the instruction you \nwould like to exclude from the conversion"))
         self.label_6.setText(_translate("MainWindow", "** tick the box of the instruction you \nwould like to delete and click 'Delete' button"))
         self.label_4.setText(_translate("MainWindow", "New motion instruction"))
+        self.radioButton_1.setText(_translate("MainWindow", "Lineal"))
         self.radioButton_2.setText(_translate("MainWindow", "Joint"))
-        self.radioButton.setText(_translate("MainWindow", "Lineal"))
+        self.radioButton_3.setText(_translate("MainWindow", "Circular"))
         self.pbAddMove.setText(_translate("MainWindow", "Add"))
         self.pbDelMove.setText(_translate("MainWindow", "Delete"))
         self.actionUser_motion_instructions.setText(_translate("MainWindow", "User motion instructions"))
@@ -410,14 +418,18 @@ class Ui_MainWindow(object):
         Method that handles the click action of the 'Add' button.
         Add instruction given in textfield of the user interface.
         """
+        msgBox =MyMessages.MyMsg()
         strInst = self.lineNewInst.text()
         strType = ''
 
-        if self.radioButton.isChecked():
+        if self.radioButton_1.isChecked():
             strType = 'Lineal'
 
         if self.radioButton_2.isChecked():
             strType = 'Joint'
+
+        if self.radioButton_3.isChecked():
+            strType = 'Circular'
 
         if strType and strInst and not xml_file.findDuplicates(strInst):
             xml_file.appendMovement(strInst, strType)
@@ -427,6 +439,10 @@ class Ui_MainWindow(object):
             self.listUserMove.setItemWidget(item, ch)
             self.lineNewInst.setText('')
             self.listUserMove.repaint()
+        elif xml_file.findDuplicates(strInst):
+            msgBox.msgBoxInfo("Instruction already exist", None, "Adding instruction")
+        else:
+            msgBox.msgBoxInfo("Instruction empty", None, "Adding instruction")
 
     def handlePbDelMove (self):
         """

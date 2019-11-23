@@ -175,7 +175,7 @@ class Ui_MainWindow(object):
         # !!
         self.pbRobt2Ast.setGeometry(QtCore.QRect(10, 360, 211, 24))
         self.pbRobt2Ast.setStyleSheet("color: rgb(170, 0, 0);\n"
-                                      "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                      "font: 75 10pt \"MS Shell Dlg 2\";\n"
                                       "background-color: rgb(193, 193, 193);")
         self.pbRobt2Ast.setObjectName("pbRobt2Ast")
         self.pbAst2Robt = QtWidgets.QPushButton(self.frame)
@@ -184,7 +184,7 @@ class Ui_MainWindow(object):
         # !!
         self.pbAst2Robt.setGeometry(QtCore.QRect(10, 320, 211, 26))
         self.pbAst2Robt.setStyleSheet("color: rgb(0, 85, 255);\n"
-                                      "font: 75 11pt \"MS Shell Dlg 2\";\n"
+                                      "font: 75 10pt \"MS Shell Dlg 2\";\n"
                                       "background-color: rgb(193, 193, 193);")
         self.pbAst2Robt.setObjectName("pbAst2Robt")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.frame)
@@ -282,13 +282,13 @@ class Ui_MainWindow(object):
         # ===============================================
         self.label_5 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
         self.label_5.setStyleSheet("color: rgb(0, 0, 0);\n"
-                                   "font: 75 9pt \"MS Shell Dlg 2\";\n")
+                                   "font: 75 8pt \"MS Shell Dlg 2\";\n")
         self.label_5.setObjectName("label_5")
         self.verticalLayout_2.addWidget(self.label_5)
         #===============================================
         self.label_6 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
         self.label_6.setStyleSheet("color: rgb(0, 0, 0);\n"
-                                   "font: 75 9pt \"MS Shell Dlg 2\";")
+                                   "font: 75 8pt \"MS Shell Dlg 2\";")
         self.label_6.setObjectName("label_6")
         self.verticalLayout_2.addWidget(self.label_6)
         # ===============================================
@@ -310,7 +310,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_3.setObjectName("verticalLayout_3")
         self.label_4 = QtWidgets.QLabel(self.verticalLayoutWidget_3)
         self.label_4.setStyleSheet("color: rgb(0, 0, 0);\n"
-                                   "font: 75 11pt \"MS Shell Dlg 2\";")
+                                   "font: 75 10pt \"MS Shell Dlg 2\";")
         self.label_4.setObjectName("label_4")
         self.verticalLayout_3.addWidget(self.label_4)
         self.lineNewInst = QtWidgets.QLineEdit(self.verticalLayoutWidget_3)

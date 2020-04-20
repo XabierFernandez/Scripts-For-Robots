@@ -1,0 +1,2 @@
+<Movements>
+	<Instruction name="ArcLStart" typemove="Lineal"/><Instruction name="ArcLEnd" typemove="Lineal"/><Instruction name="ArcL" typemove="Lineal"/><Instruction name="MoveL" typemove="Lineal"/><Instruction name="MoveJ" typemove="Joint"/></Movements>
